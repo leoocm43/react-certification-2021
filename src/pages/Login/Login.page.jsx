@@ -34,6 +34,6 @@ const LoginPage = () => {
       </form>
     </section>
   );
-}
+};
 
 export default LoginPage;

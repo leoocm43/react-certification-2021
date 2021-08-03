@@ -1,23 +1,23 @@
-import React from 'react'
-import {render, screen} from '@testing-library/react'
-import LoginPage from './Login.page'
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import LoginPage from './Login.page';
 
 describe('LoginPage', () => {
-    test('should display a  title', () => {
-        render(<LoginPage/>)
+  test('should display a  title', () => {
+    render(<LoginPage />);
 
-        const titleElement = screen.queryByText(/Please login!/i)
+    const titleElement = screen.queryByText(/Please login!/i);
 
-        expect(titleElement).toBeInTheDocument()
-    })
+    expect(titleElement).toBeInTheDocument();
+  });
 
-    test("there are username and password inputs", () => {
-        render(<LoginPage/>)
+  test('there are username and password inputs', () => {
+    render(<LoginPage />);
 
-        const userNameInputElement = screen.queryByLabelText(/username/i)
-        const passwordInputElement = screen.queryByLabelText(/password/i)
+    const userNameInputElement = screen.queryByLabelText(/username/i);
+    const passwordInputElement = screen.queryByLabelText(/password/i);
 
-        expect(userNameInputElement).toBeInTheDocument()
-        expect(passwordInputElement).toBeInTheDocument()
-    })
-})
+    expect(userNameInputElement).toBeInTheDocument();
+    expect(passwordInputElement).toBeInTheDocument();
+  });
+});
