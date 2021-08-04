@@ -13,9 +13,7 @@ const useYoutubeApi = () => {
   const fetchVideos = async (query) => {
     setLoading(true);
     try {
-      const resp = await youtubeClient(
-        `/search?part=snippet&maxResults=25&q=${query}&key=AIzaSyC8toCuN-oEin0T2SyAC4tIhUZ3xwasUk0`
-      );
+      const resp = await youtubeClient(query);
       console.log(query);
       setData(resp.data.items);
       console.log(resp.data.items);

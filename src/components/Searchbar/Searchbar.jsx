@@ -6,7 +6,7 @@ const Searchbar = () => {
   return (
     <SearchContainer>
       <IconButton>
-       <AiOutlineSearch size={22} />
+        <AiOutlineSearch size={22} />
       </IconButton>
     </SearchContainer>
   );
