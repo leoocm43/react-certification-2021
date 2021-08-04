@@ -1,30 +1,30 @@
-import React,{useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Row, Col, Container, Card } from 'react-bootstrap';
-import Iframe from 'react-iframe'
+import Iframe from 'react-iframe';
 import useYoutubeApi from '../../utils/hooks/useYoutubeApi';
 import { NavLink } from '../../components/Navbar/NavbarElements';
 
-
 const VideoDetail = () => {
-  const [videoId, setVideoId] = useState(localStorage.getItem('id'))
-  const [title, setTitle] = useState(localStorage.getItem('title'))
-  const [description, setDescription] = useState(localStorage.getItem('description'))
+  const [videoId, setVideoId] = useState(localStorage.getItem('id'));
+  const [title, setTitle] = useState(localStorage.getItem('title'));
+  const [description, setDescription] = useState(localStorage.getItem('description'));
   const { data, loading, error, fetchVideos } = useYoutubeApi();
 
-
   useEffect(() => {
-    fetchVideos(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${videoId}&type=video&key=AIzaSyC8toCuN-oEin0T2SyAC4tIhUZ3xwasUk0`)
-    console.log(data)
-  },[videoId, title, description])
+    fetchVideos(
+      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${videoId}&type=video&key=AIzaSyC8toCuN-oEin0T2SyAC4tIhUZ3xwasUk0`
+    );
+    console.log(data);
+  }, [videoId, title, description]);
 
   const setVideoValues = (titleV, descriptionV, id) => {
-    localStorage.setItem('title', titleV)
-    localStorage.setItem('description', descriptionV)
-    localStorage.setItem('id', id)
-    setVideoId(id)
-    setTitle(titleV)
-    setDescription(description)
-  }
+    localStorage.setItem('title', titleV);
+    localStorage.setItem('description', descriptionV);
+    localStorage.setItem('id', id);
+    setVideoId(id);
+    setTitle(titleV);
+    setDescription(description);
+  };
 
   if (loading) return 'Loading...';
   if (error) return 'Please try again';
@@ -33,12 +33,26 @@ const VideoDetail = () => {
     <Container>
       <Row>
         <Row xs={1} md={2}>
-          <Col sm={10}> 
-            <Iframe width="100%" height="800px" url={`https://www.youtube.com/embed/${videoId}`}></Iframe>
+          <Col sm={10}>
+            <Iframe
+              width="100%"
+              height="800px"
+              url={`https://www.youtube.com/embed/${videoId}`}
+            />
           </Col>
           <Col sm={2}>
-              {data && data.map((related) => (
-                <NavLink to="/detail" onClick={() => setVideoValues(related.snippet.title, related.snippet.description,  related.id.videoId)}>
+            {data &&
+              data.map((related) => (
+                <NavLink
+                  to="/detail"
+                  onClick={() =>
+                    setVideoValues(
+                      related.snippet.title,
+                      related.snippet.description,
+                      related.id.videoId
+                    )
+                  }
+                >
                   <Card
                     style={{
                       width: '350px',
@@ -58,13 +72,13 @@ const VideoDetail = () => {
                       </Card.Title>
                     </Card.Body>
                   </Card>
-              </NavLink>
+                </NavLink>
               ))}
           </Col>
           <Col>
             {title}
-            <br></br>
-            <br></br>
+            <br />
+            <br />
             {description}
           </Col>
         </Row>
