@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, Bars, NavMenu, NavBtn, MenuItem } from './NavbarElements';
+import { Nav, Bars, NavMenu, NavBtn, NavLink, NavBtnLink} from './NavbarElements';
 import circle from '../../assets/img/redcircle.png';
 import Searchbar from '../Searchbar/Searchbar';
 
@@ -11,14 +11,10 @@ const Navbar = () => {
         <Bars />
         <Searchbar />
         <NavMenu>
-          {/* <NavLink  to="/" >
-                        Home
-                        </NavLink> */}
-          <MenuItem>Home</MenuItem>
+           <NavLink  to="/" >Home</NavLink> 
         </NavMenu>
         <NavBtn>
-          <MenuItem>User</MenuItem>
-          {/* <NavBtnLink to="">User</NavBtnLink> */}
+          <NavBtnLink to="">User</NavBtnLink> 
         </NavBtn>
       </Nav>
     </>

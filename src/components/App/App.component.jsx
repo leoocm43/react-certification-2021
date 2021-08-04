@@ -6,6 +6,7 @@ import AuthProvider from '../../providers/Auth';
 // import LoginPage from '../../pages/Login';
 import NotFound from '../../pages/NotFound';
 import SecretPage from '../../pages/Secret';
+import VideoDetail from '../../pages/VideoDetails'
 // import Private from '../Private';
 // import Fortune from '../Fortune';
 import Layout from '../Layout';
@@ -24,6 +25,9 @@ function App() {
             </Route> */}
             <Route exact path="/">
               <SecretPage />
+            </Route>
+            <Route exact path="/detail">
+              <VideoDetail/>
             </Route>
             <Route path="*">
               <NotFound />

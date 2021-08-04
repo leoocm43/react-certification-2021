@@ -31,6 +31,15 @@ export const SearchInput = styled.input`
   }
 `;
 
+export const Input = styled.input`
+  font-size: 1.5rem;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: none;
+  border: 1px solid grey;
+  border-radius: 0.5rem;
+`;
+
 export const IconButton = styled.button`
   position: relative;
   height: 36px;

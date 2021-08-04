@@ -12,7 +12,7 @@ export const Nav = styled.nav`
 `;
 
 export const NavLink = styled(Link)`
-  color: #fff;
+  color: #880808;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -60,7 +60,7 @@ export const NavBtnLink = styled(Link)`
   border-radius: 4px;
   background: #256ce1;
   padding: 10px 22px;
-  color: #fff;
+  color: #880808;
   border: none;
   outline: none;
   cursor: pointer;
