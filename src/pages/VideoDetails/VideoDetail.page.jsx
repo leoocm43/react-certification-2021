@@ -3,9 +3,10 @@ import { Row, Col, Container, Card } from 'react-bootstrap';
 import Iframe from 'react-iframe';
 import useYoutubeApi from '../../utils/hooks/useYoutubeApi';
 import { NavLink } from '../../components/Navbar/NavbarElements';
-import {Title, Description, CardTitle} from './VideoDetailsElements'
+import Navbar from '../../components/Navbar'
+import { Title, Description, CardTitle } from './VideoDetailsElements';
 
-const {REACT_APP_YOUTUBE_API_KEY} = process.env;
+const { REACT_APP_YOUTUBE_API_KEY } = process.env;
 
 const VideoDetail = () => {
   const [videoId, setVideoId] = useState(localStorage.getItem('id'));
@@ -35,6 +36,7 @@ const VideoDetail = () => {
   return (
     <Container>
       <Row>
+        <Navbar />
         <Row xs={1} md={2}>
           <Col sm={10}>
             <Iframe

@@ -6,7 +6,8 @@ import { Input } from '../../components/Searchbar/SearchbarElements';
 import Navbar from '../../components/Navbar';
 import useYoutubeApi from '../../utils/hooks/useYoutubeApi';
 import useDebounce from '../../utils/hooks/useDebounce';
-const {REACT_APP_YOUTUBE_API_KEY} = process.env;
+
+const { REACT_APP_YOUTUBE_API_KEY } = process.env;
 
 function SecretPage() {
   const { data, loading, error, fetchVideos } = useYoutubeApi();
