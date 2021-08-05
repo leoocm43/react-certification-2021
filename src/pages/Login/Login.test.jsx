@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import { render, screen } from '@testing-library/react';
 import LoginPage from './Login.page';
 
@@ -20,4 +20,4 @@ describe('LoginPage', () => {
     expect(userNameInputElement).toBeInTheDocument();
     expect(passwordInputElement).toBeInTheDocument();
   });
-});
+});*/
