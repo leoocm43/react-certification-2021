@@ -6,6 +6,7 @@ import { Input } from '../../components/Searchbar/SearchbarElements';
 import Navbar from '../../components/Navbar';
 import useYoutubeApi from '../../utils/hooks/useYoutubeApi';
 import useDebounce from '../../utils/hooks/useDebounce';
+const {REACT_APP_YOUTUBE_API_KEY} = process.env;
 
 function SecretPage() {
   const { data, loading, error, fetchVideos } = useYoutubeApi();
@@ -19,7 +20,7 @@ function SecretPage() {
   useDebounce(
     () => {
       fetchVideos(
-        `/search?part=snippet&maxResults=25&q=${value}&key=AIzaSyC8toCuN-oEin0T2SyAC4tIhUZ3xwasUk0`
+        `/search?part=snippet&maxResults=25&q=${value}&type=video&key=${REACT_APP_YOUTUBE_API_KEY}`
       );
     },
     [value],

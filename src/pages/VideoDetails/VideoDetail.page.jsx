@@ -3,6 +3,9 @@ import { Row, Col, Container, Card } from 'react-bootstrap';
 import Iframe from 'react-iframe';
 import useYoutubeApi from '../../utils/hooks/useYoutubeApi';
 import { NavLink } from '../../components/Navbar/NavbarElements';
+import {Title, Description, CardTitle} from './VideoDetailsElements'
+
+const {REACT_APP_YOUTUBE_API_KEY} = process.env;
 
 const VideoDetail = () => {
   const [videoId, setVideoId] = useState(localStorage.getItem('id'));
@@ -12,7 +15,7 @@ const VideoDetail = () => {
 
   useEffect(() => {
     fetchVideos(
-      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${videoId}&type=video&key=AIzaSyC8toCuN-oEin0T2SyAC4tIhUZ3xwasUk0`
+      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${videoId}&type=video&key=${REACT_APP_YOUTUBE_API_KEY}`
     );
     console.log(data);
   }, [videoId, title, description]);
@@ -68,7 +71,7 @@ const VideoDetail = () => {
                     />
                     <Card.Body>
                       <Card.Title style={{ fontSize: '12px' }}>
-                        {related.snippet.title}
+                        <CardTitle>{related.snippet.title}</CardTitle>
                       </Card.Title>
                     </Card.Body>
                   </Card>
@@ -76,10 +79,10 @@ const VideoDetail = () => {
               ))}
           </Col>
           <Col>
-            {title}
+            <Title>{title}</Title>
             <br />
             <br />
-            {description}
+            <Description>{description}</Description>
           </Col>
         </Row>
       </Row>
