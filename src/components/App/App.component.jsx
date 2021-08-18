@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import AuthProvider from '../../providers/Auth';
-import VideoState from '../../context/Video/VideoState';
+import VideoState from '../../context/Video/VideoState.jsx';
 // import HomePage from '../../pages/Home';
 // import LoginPage from '../../pages/Login';
 import NotFound from '../../pages/NotFound';
