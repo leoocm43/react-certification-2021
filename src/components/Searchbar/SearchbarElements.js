@@ -33,41 +33,17 @@ export const SearchInput = styled.input`
 
 export const Input = styled.input`
   font-size: 1.5rem;
-  width: 100%;
+  width: 50%;
   padding: 1rem 1.5rem;
   background: none;
   border: 1px solid grey;
   border-radius: 0.5rem;
+  margin: 1rem 0 1rem 0;
 `;
 
 export const IconButton = styled.button`
-  position: relative;
-  height: 36px;
-  width: 36px;
-  border: none;
-  z-index: 1;
-  cursor: pointer;
-  background: none;
-
-  &.hover {
-    color: white;
-    &::after {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    border-radius: 50%;
-    z-index: -1;
-    background: #000;
-    transition: 0.2s ease;
-    transform: scale(0.6);
-    opacity: 0;
-  }
+  background-color: #880808;
+  width: 80px;
+  height: 80px;
+  margin-top: 1rem;
 `;
