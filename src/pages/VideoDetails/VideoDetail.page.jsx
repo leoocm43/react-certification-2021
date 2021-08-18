@@ -1,18 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useContext} from 'react';
 import { Row, Col, Container, Card } from 'react-bootstrap';
 import Iframe from 'react-iframe';
 import useYoutubeApi from '../../utils/hooks/useYoutubeApi';
 import { NavLink } from '../../components/Navbar/NavbarElements';
 import Navbar from '../../components/Navbar'
 import { Title, Description, CardTitle } from './VideoDetailsElements';
+import VideoContext from '../../context/Video/VideoContext';
 
 const { REACT_APP_YOUTUBE_API_KEY } = process.env;
 
+
+
 const VideoDetail = () => {
-  const [videoId, setVideoId] = useState(localStorage.getItem('id'));
+  /*const [videoId, setVideoId] = useState(localStorage.getItem('id'));
   const [title, setTitle] = useState(localStorage.getItem('title'));
-  const [description, setDescription] = useState(localStorage.getItem('description'));
+  const [description, setDescription] = useState(localStorage.getItem('description'));*/
   const { data, loading, error, fetchVideos } = useYoutubeApi();
+  const { videoId, setVideoId, title, setTitle, description, setDescription } = useContext(VideoContext)
+
+
 
   useEffect(() => {
     fetchVideos(
@@ -22,12 +28,15 @@ const VideoDetail = () => {
   }, [videoId, title, description]);
 
   const setVideoValues = (titleV, descriptionV, id) => {
-    localStorage.setItem('title', titleV);
+    /*localStorage.setItem('title', titleV);
     localStorage.setItem('description', descriptionV);
     localStorage.setItem('id', id);
     setVideoId(id);
     setTitle(titleV);
-    setDescription(description);
+    setDescription(description);*/
+    setVideoId(id)
+    setTitle(titleV)
+    setDescription(descriptionV)
   };
 
   if (loading) return 'Loading...';
