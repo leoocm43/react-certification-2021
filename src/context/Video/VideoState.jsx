@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import VideoContext from './VideoContext';
 
 const VideoState = (props) => {
-  const [video, setVideo] = useState('wizeline');
+  const [video, setVideo] = useState('');
   const [videoId, setVideoId] = useState('');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');

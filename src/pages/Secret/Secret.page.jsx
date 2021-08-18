@@ -15,7 +15,7 @@ function SecretPage() {
   const [value, setValue] = useState('');
   const [label, setLabel] = useState('Type and search...');
 
-  const { video, setVideoId, setTitle, setDescription } = useContext(VideoContext);
+  const { setVideoId, setTitle, setDescription } = useContext(VideoContext);
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -23,8 +23,9 @@ function SecretPage() {
   };
 
   const handleSearch = () => {
+    
     fetchVideos(
-      `/search?part=snippet&maxResults=25&q=${video}&type=video&key=${REACT_APP_YOUTUBE_API_KEY}`
+      `/search?part=snippet&maxResults=25&q=${value}&type=video&key=${REACT_APP_YOUTUBE_API_KEY}`
     );
     if (value !== '') {
       setLabel('Loading');
